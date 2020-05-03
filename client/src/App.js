@@ -1,9 +1,14 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import { useRoutes } from './routes';
 
 function App() {
+  const routes = useRoutes(false)
   return (
     <div>
-      <h1> Hello </h1>
+      <Router>
+        {routes}
+      </Router>
     </div>
   );
 }
