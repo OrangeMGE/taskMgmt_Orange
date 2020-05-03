@@ -9,8 +9,8 @@ export const ListHook = () => {
 
         try {
             if(body) {
-                body = body.text
-                headers['Content-Type'] = 'application/text'
+                body = JSON.stringify(body)
+                headers['Content-Type'] = 'application/json'
             }
 
             const response = await fetch(url, {method, body, headers})
@@ -20,7 +20,6 @@ export const ListHook = () => {
                 throw new Error(data.message || 'Что-то пошло не так')
             }
 
-            setLoading(false)
             return data
 
         } catch(e) {    

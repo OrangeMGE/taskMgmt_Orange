@@ -61,3 +61,12 @@
   .todoListMain {
  
   }
+
+  /* Вызов меню создания */
+
+  .main {
+    position: relative;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }
