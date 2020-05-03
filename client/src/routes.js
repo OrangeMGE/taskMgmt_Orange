@@ -7,9 +7,10 @@ export const useRoutes = isAuthenticated => {
     if(isAuthenticated){
         return (
             <Switch>
-                <Route path="/todo/:id">
+                <Route path="/todo">
                     <Todo/>
                 </Route>
+                <Redirect to='/todo' />
             </Switch>
         )
     }

@@ -34,4 +34,30 @@
     background: #2ecc71;
   }
 
-  
+  .todoContainer { /*Сам контейнер */
+    position: fixed;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 90%;
+    border: 1px solid black;
+  }
+
+  /* Листы */
+
+  .todoList {
+ 
+    flex-wrap: wrap;
+    width: 250px;
+    border: 1px solid black;
+  }
+
+  .todoListHeader {
+    height: auto;
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .todoListMain {
+ 
+  }

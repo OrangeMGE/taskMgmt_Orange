@@ -11,9 +11,10 @@ router.post(
     '/register',
     [
         check('username', 'Некорректный логин'),
-        check('password', 'минимальная длина пароля 6 символов').isLength({min:6})
+        check('password', 'минимальная длина пароля 6 символов')
     ],
-    async (request, response) => {
+    async (req, response) => {
+        //console.log('body: ', req.body)
         try {
             const errors = validationResult(req)
             
@@ -24,7 +25,7 @@ router.post(
                 })
             }
 
-            const {username, password} = request.body;
+            const {username, password} = req.body;
             
             const candidate = await User.findOne( { username } )
 
@@ -34,13 +35,14 @@ router.post(
 
             const hashedPassword = await bcrypt.hash(password, 12);
             const user = new User( { username, password:hashedPassword } );
-
+            
             await user.save();
 
             response.status(201).json({ message: 'Пользователь создан' })
 
         } catch(e) {
-            response.status(500).json({ "message": 'Что-то пошло не так' });
+            //console.log(e)
+            response.status(500).json({ "message": 'Что-то пошло не так'});
         }
 
 })
@@ -51,7 +53,7 @@ router.post(
         check('username', 'Введите корректный логин'),
         check('password', 'Введите пароль').exists()
     ],
-    async (require, response) => {
+    async (req, response) => {
         try {
             const errors = validationResult(req)
 
@@ -62,7 +64,7 @@ router.post(
                 })
             }
 
-            const {username, password} = require.body
+            const {username, password} = req.body
 
             const user = await User.findOne({ username })
 
@@ -85,6 +87,7 @@ router.post(
             response.json({ token, userId: user.id });
 
         } catch(e) {
+            console.log(e)
             response.status(500).json({ "message": 'Что-то пошло не так' });
         }
     })
