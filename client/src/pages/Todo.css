@@ -56,10 +56,16 @@
     height: auto;
     text-align: center;
     border: 1px solid black;
+
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+
   }
 
   .todoListMain {
- 
+    color: white;
+    text-align: center;
   }
 
   /* Вызов меню создания */

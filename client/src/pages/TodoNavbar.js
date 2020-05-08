@@ -13,11 +13,6 @@ export const TodoNavbar = () => {
     const auth = useContext(AuthContext)
     let isCreateWindow = true;
 
-    const createListWindow = () => {
-        isCreateWindow = !isCreateWindow;
-        console.log(isCreateWindow)
-    }
-
     const logoutHandler = event => {
         event.preventDefault()
         auth.logout()
@@ -28,7 +23,7 @@ export const TodoNavbar = () => {
             <div className= "headerMain" >
                 <header className = "headerNav"> 
                     <h1> ITracers task-manager</h1>
-                    <input className="returnButton" type="button" value="Create List" onClick={createListWindow}></input>
+                    <input className="returnButton" type="button" value="Create List"></input>
                     <input className="returnButton" type="button" value="Exit" onClick={logoutHandler}></input>
                 </header>
             </div>
@@ -36,3 +31,4 @@ export const TodoNavbar = () => {
                   
         )
 }
+

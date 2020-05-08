@@ -31,3 +31,30 @@ export const ListHook = () => {
     
     return { request }
 }
+
+export const AppendList = (data) => {
+    for(let i = 0; i < data.length; i++) {
+        let component = document.createElement('div');
+        component.className = 'todoList'
+
+        let header = document.createElement('header')
+        header.className = 'todoListHeader'
+        header.innerText = data[i].nametask
+
+        let main = document.createElement('main')
+        main.className = 'todoListMain'
+
+        let span = document.createElement('span')
+        span.innerText = data[i].descriptiontask
+
+        main.appendChild(span)
+
+        component.appendChild(header)
+        component.appendChild(main)
+
+        console.log(component)
+
+        let root = document.querySelector('.todoContainer')
+        root.appendChild(component)
+    }
+}

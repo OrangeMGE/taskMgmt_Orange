@@ -1,12 +1,15 @@
 import { TodoNavbar } from './TodoNavbar'
 import { TodoList } from './TodoList'
-import { ListHook } from '../hooks/list.hook';
-import React , { Component, useContext } from 'react';
+import { ListHook, AppendList } from '../hooks/list.hook';
+import React , { Component, useContext, forwardRef } from 'react';
+import { render } from 'react-dom'
+import appendReactDOM from 'append-react-dom';
 import styles from './Todo.css';
 
 
 export const Todo = () => {
     const { request } = ListHook();
+
     window.onload = async () => {
         try{
             const userId = JSON.parse(localStorage.getItem('userData')).userId
@@ -14,6 +17,10 @@ export const Todo = () => {
             console.log('Окно загрузилось') //Убрать
             const data = await request('/api/list/required', 'POST', {userId})
             console.log(data.message);
+
+            const root = document.querySelector('.todoContainer')
+
+            AppendList(data.message)
         } catch(e) {}
     }
 
@@ -27,6 +34,8 @@ export const Todo = () => {
         }
         console.log(dataTask)
         const data = await request('/api/list/push', 'POST', dataTask)
+
+        window.location.reload()
     }
 
     return (
@@ -34,8 +43,7 @@ export const Todo = () => {
             <TodoNavbar />
             
             <div className="todoContainer">
-                <TodoList />
-                <TodoList />
+
             </div>
 
             <div className="main">       
@@ -52,3 +60,4 @@ export const Todo = () => {
         </div>
     )
 } 
+

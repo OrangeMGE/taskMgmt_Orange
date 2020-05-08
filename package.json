@@ -16,6 +16,7 @@
   "author": "Volkov Vitaliy <orangeitracers@yandex.ru> (Orange)",
   "license": "ISC",
   "dependencies": {
+    "append-react-dom": "^1.0.1",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.2.0",
     "config": "^3.3.1",
