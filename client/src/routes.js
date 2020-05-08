@@ -1,7 +1,7 @@
 import React from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import {Registration} from './pages/Registration'
-import {Todo} from './pages/Todo'
+import {Todo} from './pages/Todo.js'
 
 export const useRoutes = isAuthenticated => {
     if(isAuthenticated){

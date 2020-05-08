@@ -34,7 +34,7 @@ router.post(
             }
 
             const hashedPassword = await bcrypt.hash(password, 12);
-            const user = new User( { username, password:hashedPassword, lists:'Empty' } );
+            const user = new User( { username, password:hashedPassword, lists:[] } );
             
             await user.save();
 
