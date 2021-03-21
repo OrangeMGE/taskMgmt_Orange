@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  min-width: 1000px;
   font-family: 'Bangers', cursive;
   font-size: 14px;
   background: #34495E;

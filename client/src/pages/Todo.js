@@ -5,6 +5,7 @@ import React , { Component, useContext, forwardRef } from 'react';
 import { render } from 'react-dom'
 import appendReactDOM from 'append-react-dom';
 import styles from './Todo.css';
+import styless from './Registration.css';
 
 
 export const Todo = () => {
@@ -13,8 +14,8 @@ export const Todo = () => {
     window.onload = async () => {
         try{
             const userId = JSON.parse(localStorage.getItem('userData')).userId
-            console.log('userData: ' , userId ) //Убрать
-            console.log('Окно загрузилось') //Убрать
+            //console.log('userData: ' , userId ) //Убрать
+            //console.log('Окно загрузилось') //Убрать
             const data = await request('/api/list/required', 'POST', {userId})
             console.log(data.message);
 

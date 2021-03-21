@@ -37,19 +37,20 @@ export const Registration = () => {
 
     return(
       <div className="parrent">
-        <h1 className="title">Task Manager</h1>
-        
         <div className="box">
           <h1> Login </h1>
-          <input type='text' id='username' name='username' placeholder='Username' onChange={changeHandler} />
-          <input type='password' id='password' name='password' placeholder='Password' onChange={changeHandler} />
+          <input type='text' id='username' name='username' placeholder='Username' />
+          <input type='password' id='password' name='password' placeholder='Password'  />
           
-          <input type='submit' name='' value='Login' onClick={loginHandler} disabled={loading}/>
-          <input type='submit' name='' value='Registration' onClick={registerHandler} disabled={loading}/>
+          <input type='submit' name='' value='Войти' />
+          <input type='submit' name='' value='Зарегистрироваться' />
         </div>
-        <div className="by">
-          <h2> By Orange </h2>
-        </div>
+        <footer>
+          By Vilatiy Volkov
+          By Alexandra Paxolkina
+          By Ekaterina Trochenko
+        </footer>
       </div>
+    
     )
 }
